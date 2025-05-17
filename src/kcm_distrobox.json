@@ -1,0 +1,16 @@
+{
+    "KPlugin": {
+        "Description": "Configure Distrobox",
+        "FormFactors": [
+            "desktop",
+            "handset",
+            "tablet",
+            "mediacenter"
+        ],
+        "Icon": "preferences-system-time",
+        "Name": "Time"
+   },
+    "X-KDE-Keywords": "System",
+    "X-KDE-System-Settings-Parent-Category": "personalization"
+}
+
