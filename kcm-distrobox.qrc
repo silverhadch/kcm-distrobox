@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/ui">
+    <file>src/ui/main.qml</file>
+    <file>src/ui/AddBoxDialog.qml</file>
+    <file>src/ui/ExportApps.qml</file>
+    <file>src/ui/OpenPackage.qml</file>
+  </qresource>
+</RCC>
+

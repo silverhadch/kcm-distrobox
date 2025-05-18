@@ -1,18 +1,57 @@
-/**
- * SPDX-FileCopyrightText: Year Author <author@domain.com>
- * SPDX-License-Identifier: GPL-2.0-or-later
- */
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import org.kde.kirigami 2.20 as Kirigami
+import org.kde.distrobox 1.0
 
+Kirigami.ScrollablePage {
+    id: mainPage
+    title: "Distrobox Manager"
 
-import QtQuick
-import QtQuick.Controls as Controls
+    DistroboxBackend {
+        id: backend
+    }
 
-import org.kde.kirigami as Kirigami
-import org.kde.kcmutils as KCMUtils
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: Kirigami.Units.smallSpacing
 
-KCMUtils.SimpleKCM {
-    Controls.Label {
-        text: i18n("Time settings example")
+        RowLayout {
+            Layout.alignment: Qt.AlignRight
+            Button {
+                text: "Create Distrobox"
+                onClicked: console.log("TODO: Open AddBoxDialog")
+            }
+        }
+
+        ListView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            model: backend.listDistroboxes()
+            delegate: Item {
+                width: parent.width
+                height: Kirigami.Units.gridUnit * 2
+
+                RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Label {
+                        text: modelData
+                        Layout.fillWidth: true
+                    }
+
+                    Button { text: "Enter"; onClicked: backend.enterDistrobox(modelData) }
+                    Button { text: "Clone" /* TODO: implement cloning */ }
+                    Button { text: "Update" /* TODO: implement updating */ }
+                    Button { text: "Delete"; onClicked: backend.removeDistrobox(modelData) }
+                    Button {
+                        text: "Export Apps"
+                        onClicked: {
+                            // TODO: Open ExportApps dialog/page
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
