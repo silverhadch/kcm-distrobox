@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Minimum versions
+set(BUILD_WITH_QT6 ON CACHE BOOL "Force building with Qt6")
 set(QT_MIN_VERSION "6.5.0")
 set(KF6_MIN_VERSION "6.0.0")
 
